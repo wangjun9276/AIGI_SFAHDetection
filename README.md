@@ -134,3 +134,5 @@ python test.py \
   --output-dir results/legacy_stage2 \
   --device cuda:0
 ```
+
+Pretrained model avaliable at \fref{https://drive.google.com/file/d/1AVcRZLCW1rETdh68yz_GA25rwrjfqlWc/view?usp=sharing}{link}.
