@@ -138,3 +138,25 @@ The pretrained model is available at [this link](https://drive.google.com/file/d
 
 
 ### Additional Post-processing Robustness Evaluation
+
+We additionally evaluate the robustness of SFAH under the following post-processing operations:
+
+- Brightness adjustment
+- Random drop
+- Median filtering
+- Resizing
+
+All transformations are applied only to the testing images. The detector is kept unchanged, and no retraining or test-time adaptation is performed.
+
+## Results
+
+| Post-processing | Setting | ACC (%) | AP (%) |
+|---|---:|---:|---:|
+| Brightness adjustment | level 1 | xx.xx | xx.xx |
+| Brightness adjustment | level 2 | xx.xx | xx.xx |
+| Random drop | level 1 | xx.xx | xx.xx |
+| Random drop | level 2 | xx.xx | xx.xx |
+| Median filtering | k=3 | xx.xx | xx.xx |
+| Median filtering | k=5 | xx.xx | xx.xx |
+| Resizing | scale=0.75 | xx.xx | xx.xx |
+| Resizing | scale=0.50 | xx.xx | xx.xx |
