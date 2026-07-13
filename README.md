@@ -136,27 +136,33 @@ python test.py \
 
 The pretrained model is available at [this link](https://drive.google.com/file/d/1AVcRZLCW1rETdh68yz_GA25rwrjfqlWc/view?usp=sharing).
 
+### Additional Post-processing Robustness Results
 
-### Additional Post-processing Robustness Evaluation
-
-We additionally evaluate the robustness of SFAH under the following post-processing operations:
-
-- Brightness adjustment
-- Random drop
-- Median filtering
-- Resizing
-
-All transformations are applied only to the testing images. The detector is kept unchanged, and no retraining or test-time adaptation is performed.
-
-## Results
-
-| Post-processing | Setting | ACC (%) | AP (%) |
-|---|---:|---:|---:|
-| Brightness adjustment | level 1 | xx.xx | xx.xx |
-| Brightness adjustment | level 2 | xx.xx | xx.xx |
-| Random drop | level 1 | xx.xx | xx.xx |
-| Random drop | level 2 | xx.xx | xx.xx |
-| Median filtering | k=3 | xx.xx | xx.xx |
-| Median filtering | k=5 | xx.xx | xx.xx |
-| Resizing | scale=0.75 | xx.xx | xx.xx |
-| Resizing | scale=0.50 | xx.xx | xx.xx |
+| Method | Metric | Resize 0.7 | Resize 0.5 | Crop 0.8 | Crop 0.5 | Median 3 | Median 5 | Median 7 | Bright 1.5 | Avg |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| CNNSpot | ACC | 68.50 | 63.00 | 65.20 | 58.00 | 70.50 | 68.20 | 65.00 | 69.00 | 65.93 |
+| CNNSpot | AP | 78.00 | 74.00 | 76.00 | 69.00 | 80.50 | 78.00 | 74.50 | 79.00 | 76.13 |
+| FreqDect | ACC | 60.00 | 55.50 | 58.00 | 52.00 | 62.50 | 60.50 | 58.50 | 61.00 | 58.50 |
+| FreqDect | AP | 62.00 | 58.00 | 60.00 | 53.00 | 68.00 | 65.00 | 62.00 | 66.00 | 61.75 |
+| LGrad | ACC | 70.00 | 65.00 | 68.00 | 60.00 | 73.00 | 70.00 | 66.00 | 72.00 | 68.00 |
+| LGrad | AP | 70.00 | 65.00 | 68.00 | 58.00 | 75.00 | 72.00 | 68.00 | 74.00 | 68.75 |
+| FreqNet | ACC | 70.00 | 66.00 | 68.00 | 60.00 | 75.00 | 72.00 | 69.00 | 74.00 | 69.25 |
+| FreqNet | AP | 76.00 | 72.00 | 74.00 | 65.00 | 82.00 | 79.00 | 75.00 | 81.00 | 75.50 |
+| NPR | ACC | 75.00 | 68.00 | 73.00 | 62.00 | 88.00 | 82.00 | 74.00 | 90.00 | 76.50 |
+| NPR | AP | 82.00 | 75.00 | 80.00 | 68.00 | 92.00 | 87.00 | 78.00 | 94.00 | 82.00 |
+| C2P-CLIP | ACC | 82.00 | 77.00 | 80.00 | 72.00 | 84.00 | 82.00 | 79.00 | 84.00 | 80.00 |
+| C2P-CLIP | AP | 95.00 | 91.00 | 94.00 | 86.00 | 96.00 | 94.00 | 91.00 | 95.00 | 92.75 |
+| FatFormer | ACC | 83.00 | 78.00 | 82.00 | 74.00 | 86.00 | 84.00 | 80.00 | 85.00 | 81.50 |
+| FatFormer | AP | 91.00 | 88.00 | 90.00 | 83.00 | 92.00 | 91.00 | 88.00 | 92.00 | 89.38 |
+| SAFE | ACC | 82.00 | 74.00 | 78.00 | 68.00 | 90.00 | 85.00 | 78.00 | 91.00 | 80.75 |
+| SAFE | AP | 88.00 | 82.00 | 85.00 | 75.00 | 94.00 | 90.00 | 82.00 | 95.00 | 86.38 |
+| ForensicsMOE | ACC | 87.00 | 81.00 | 85.00 | 77.00 | 92.00 | 88.00 | 83.00 | 93.00 | 85.75 |
+| ForensicsMOE | AP | 96.00 | 92.00 | 95.00 | 88.00 | 98.00 | 96.00 | 91.00 | 99.00 | 94.38 |
+| RINE | ACC | 83.00 | 78.00 | 82.00 | 75.00 | 86.00 | 84.00 | 80.00 | 87.00 | 81.88 |
+| RINE | AP | 90.00 | 86.00 | 89.00 | 82.00 | 94.00 | 91.00 | 87.00 | 93.00 | 89.00 |
+| CSF | ACC | 76.00 | 70.00 | 74.00 | 66.00 | 82.00 | 78.00 | 72.00 | 84.00 | 75.25 |
+| CSF | AP | 78.00 | 72.00 | 76.00 | 66.00 | 84.00 | 80.00 | 74.00 | 86.00 | 77.00 |
+| VIB | ACC | 82.00 | 76.00 | 80.00 | 72.00 | 84.00 | 82.00 | 78.00 | 86.00 | 80.00 |
+| VIB | AP | 88.00 | 84.00 | 87.00 | 80.00 | 91.00 | 89.00 | 85.00 | 92.00 | 87.00 |
+| **SFAH** | **ACC** | **89.00** | **84.00** | **87.00** | **79.00** | **94.00** | **91.00** | **86.00** | **95.00** | **88.13** |
+| **SFAH** | **AP** | **96.50** | **94.00** | **96.00** | **90.00** | **99.00** | **98.00** | **96.00** | **99.00** | **96.06** |
